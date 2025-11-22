@@ -251,6 +251,7 @@ configs = [
     'solum/pssf222201a.json',
     'solum/solum_pssf162202_psu.json',
     'supermicro/supermicro-pws-920p-sq_psu.json',
+    'ted/ted.json',
     'tyan/tyan_s5549_baseboard.json',
     'tyan/tyan_s7106_baseboard.json',
     'tyan/tyan_s8030_baseboard.json',

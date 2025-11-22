@@ -1,0 +1,41 @@
+{
+    "Exposes": [
+        {
+            "Name": "TedTemp",
+            "Units": "DegreesC",
+            "MinValue": -16.0,
+            "MaxValue": 111.5,
+            "Timeout": 400.0,
+            "Thresholds": [
+                {
+                    "Direction": "greater than",
+                    "Name": "upper critical",
+                    "Severity": 1,
+                    "Value": 100
+                },
+                {
+                    "Direction": "greater than",
+                    "Name": "upper non critical",
+                    "Severity": 0,
+                    "Value": 95
+                },
+                {
+                    "Direction": "less than",
+                    "Name": "lower non critical",
+                    "Severity": 0,
+                    "Value": 5
+                },
+                {
+                    "Direction": "less than",
+                    "Name": "lower critical",
+                    "Severity": 1,
+                    "Value": 0
+                }
+            ],
+            "Type": "ExternalSensor"
+        }
+    ],
+    "Name": "Ted_Board",
+    "Probe": "TRUE",
+    "Type": "Board"
+}
