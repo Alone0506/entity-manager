@@ -17,7 +17,7 @@
                     "Direction": "greater than",
                     "Name": "upper non critical",
                     "Severity": 0,
-                    "Value": 95
+                    "Value": 70
                 },
                 {
                     "Direction": "less than",
