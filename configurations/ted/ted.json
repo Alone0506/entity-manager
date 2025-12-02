@@ -3,15 +3,15 @@
         {
             "Name": "TedTemp",
             "Units": "DegreesC",
-            "MinValue": -16.0,
-            "MaxValue": 111.5,
+            "MinValue": 0,
+            "MaxValue": 100,
             "Timeout": 400.0,
             "Thresholds": [
                 {
                     "Direction": "greater than",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 100
+                    "Value": 95
                 },
                 {
                     "Direction": "greater than",
@@ -23,13 +23,13 @@
                     "Direction": "less than",
                     "Name": "lower non critical",
                     "Severity": 0,
-                    "Value": 5
+                    "Value": 20
                 },
                 {
                     "Direction": "less than",
                     "Name": "lower critical",
                     "Severity": 1,
-                    "Value": 0
+                    "Value": 5
                 }
             ],
             "Type": "ExternalSensor"
