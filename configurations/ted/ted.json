@@ -1,7 +1,7 @@
 {
     "Exposes": [
         {
-            "Name": "TedTemp",
+            "Name": "ExternalTemp1",
             "Units": "DegreesC",
             "MinValue": 0,
             "MaxValue": 100,
@@ -35,7 +35,7 @@
             "Type": "ExternalSensor"
         },
         {
-            "Name": "TedTemp2",
+            "Name": "ExternalTemp2",
             "Units": "DegreesC",
             "MinValue": 0,
             "MaxValue": 100,
