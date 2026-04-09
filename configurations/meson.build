@@ -1,6 +1,7 @@
 # This file is auto-generated. Do not edit manually.
 # File content generated with generate_config_list.sh
 configs = [
+    'ted/ted.json',
     '3y-power/3ypower_vast2112_psu.json',
     'acbel/r1ca2122a_psu.json',
     'acbel/rica_psu.json',
