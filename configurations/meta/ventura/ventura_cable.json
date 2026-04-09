@@ -3,18 +3,18 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackDripPanPort$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackDripPanPort$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackFloorLeakPort1$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackFloorLeakPort1$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackFloorLeakPort2$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackFloorLeakPort2$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100325"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -26,14 +26,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackRightManifoldPort$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackRightManifoldPort$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100969"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -45,14 +45,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackLeftManifoldPort$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RackLeftManifoldPort$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100968"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -64,20 +64,20 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RPU1LeakPort1$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RPU1LeakPort1$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RPU1LeakPort2$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RPU1LeakPort2$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RPU2LeakPort1$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RPU2LeakPort1$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RPU2LeakPort2$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^RPU2LeakPort2$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100409"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -89,18 +89,18 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort1$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort1$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort2$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort2$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort3$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort3$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100391"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -112,18 +112,18 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort4$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort4$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort5$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort5$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort6$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort6$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100390"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -135,16 +135,16 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort7$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort7$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort8$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort8$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100389"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -156,16 +156,16 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort9$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort9$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort10$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort10$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100388"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -177,22 +177,22 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort11$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort11$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort12$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort12$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort13$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort13$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort16$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort16$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort17$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort17$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100361"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -204,16 +204,16 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort14$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort14$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort15$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort15$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100360"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -225,18 +225,18 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort18$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort18$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort19$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort19$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort20$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort20$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100359"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -248,16 +248,16 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort21$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort21$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort22$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort22$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100355"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -269,16 +269,16 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort23$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort23$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort24$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort24$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100354"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -290,18 +290,18 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort25$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort25$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort26$'})",
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort26$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})",
             "OR",
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort27$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^LeakPort27$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100633"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -313,14 +313,14 @@
         "Exposes": [],
         "Name": "ReturnValve_1_Port",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^ReturnValve_1$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^ReturnValve_1$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100705"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -332,14 +332,14 @@
         "Exposes": [],
         "Name": "SupplyValve_1_Port",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^SupplyValve_1$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^SupplyValve_1$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100704"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {

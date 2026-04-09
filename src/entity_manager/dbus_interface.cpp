@@ -1,5 +1,6 @@
 #include "dbus_interface.hpp"
 
+#include "../dbus_regex.hpp"
 #include "perform_probe.hpp"
 #include "utils.hpp"
 
@@ -7,15 +8,11 @@
 
 #include <flat_map>
 #include <fstream>
-#include <regex>
 #include <string>
 #include <vector>
 
 namespace dbus_interface
 {
-
-const std::regex illegalDbusPathRegex("[^A-Za-z0-9_.]");
-const std::regex illegalDbusMemberRegex("[^A-Za-z0-9_]");
 
 EMDBusInterface::EMDBusInterface(boost::asio::io_context& io,
                                  sdbusplus::asio::object_server& objServer,
@@ -48,7 +45,7 @@ std::shared_ptr<sdbusplus::asio::dbus_interface>
     // a constant delete/add will not create a memory leak
 
     auto ptr = objServer.add_interface(path, interface);
-    auto& dataVector = inventory[parent];
+    auto& dataVector = inventory.try_emplace(parent).first->second;
     if (checkNull)
     {
         auto it = std::find_if(dataVector.begin(), dataVector.end(),
@@ -251,7 +248,7 @@ static void addObjectRuntimeValidateJson(
 
     if (!schemaFile.good())
     {
-        throw std::invalid_argument("No schema avaliable, cannot validate.");
+        throw std::invalid_argument("No schema available, cannot validate.");
     }
     nlohmann::json schema =
         nlohmann::json::parse(schemaFile, nullptr, false, true);
@@ -355,10 +352,8 @@ void EMDBusInterface::addObjectJson(
     {
         lg2::error("Error writing json files");
     }
-    std::string dbusName = *name;
 
-    std::regex_replace(dbusName.begin(), dbusName.begin(), dbusName.end(),
-                       illegalDbusMemberRegex, "_");
+    std::string dbusName = dbus_regex::sanitizeForDBusMember(*name);
 
     std::shared_ptr<sdbusplus::asio::dbus_interface> interface =
         createInterface(path + "/" + dbusName,

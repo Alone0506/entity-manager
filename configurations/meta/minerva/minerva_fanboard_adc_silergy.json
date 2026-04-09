@@ -313,7 +313,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -321,7 +321,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -362,7 +362,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -370,7 +370,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -411,7 +411,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -419,7 +419,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -460,7 +460,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -468,7 +468,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -541,8 +541,10 @@
             "SerialNumber": "$BOARD_SERIAL_NUMBER",
             "SparePartNumber": "$BOARD_INFO_AM1"
         },
-        "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
-            "AssetTag": "$PRODUCT_ASSET_TAG"
+        "xyz.openbmc_project.Inventory.Decorator.Compatible": {
+            "Names": [
+                "com.meta.Hardware.Minerva.Boards.FanBoard"
+            ]
         }
     },
     {
@@ -859,7 +861,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -867,7 +869,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -908,7 +910,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -916,7 +918,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -957,7 +959,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -965,7 +967,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -1006,7 +1008,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -1014,7 +1016,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -1087,8 +1089,10 @@
             "SerialNumber": "$BOARD_SERIAL_NUMBER",
             "SparePartNumber": "$BOARD_INFO_AM1"
         },
-        "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
-            "AssetTag": "$PRODUCT_ASSET_TAG"
+        "xyz.openbmc_project.Inventory.Decorator.Compatible": {
+            "Names": [
+                "com.meta.Hardware.Minerva.Boards.FanBoard"
+            ]
         }
     },
     {
@@ -1405,7 +1409,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -1413,7 +1417,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -1454,7 +1458,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -1462,7 +1466,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -1503,7 +1507,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -1511,7 +1515,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -1552,7 +1556,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -1560,7 +1564,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -1633,8 +1637,10 @@
             "SerialNumber": "$BOARD_SERIAL_NUMBER",
             "SparePartNumber": "$BOARD_INFO_AM1"
         },
-        "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
-            "AssetTag": "$PRODUCT_ASSET_TAG"
+        "xyz.openbmc_project.Inventory.Decorator.Compatible": {
+            "Names": [
+                "com.meta.Hardware.Minerva.Boards.FanBoard"
+            ]
         }
     },
     {
@@ -1951,7 +1957,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -1959,7 +1965,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -2000,7 +2006,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -2008,7 +2014,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -2049,7 +2055,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -2057,7 +2063,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -2098,7 +2104,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -2106,7 +2112,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -2179,8 +2185,10 @@
             "SerialNumber": "$BOARD_SERIAL_NUMBER",
             "SparePartNumber": "$BOARD_INFO_AM1"
         },
-        "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
-            "AssetTag": "$PRODUCT_ASSET_TAG"
+        "xyz.openbmc_project.Inventory.Decorator.Compatible": {
+            "Names": [
+                "com.meta.Hardware.Minerva.Boards.FanBoard"
+            ]
         }
     },
     {
@@ -2497,7 +2505,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -2505,7 +2513,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -2546,7 +2554,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -2554,7 +2562,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -2595,7 +2603,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -2603,7 +2611,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -2644,7 +2652,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -2652,7 +2660,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -2725,8 +2733,10 @@
             "SerialNumber": "$BOARD_SERIAL_NUMBER",
             "SparePartNumber": "$BOARD_INFO_AM1"
         },
-        "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
-            "AssetTag": "$PRODUCT_ASSET_TAG"
+        "xyz.openbmc_project.Inventory.Decorator.Compatible": {
+            "Names": [
+                "com.meta.Hardware.Minerva.Boards.FanBoard"
+            ]
         }
     },
     {
@@ -3043,7 +3053,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -3051,7 +3061,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -3092,7 +3102,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -3100,7 +3110,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -3141,7 +3151,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -3149,7 +3159,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -3190,7 +3200,7 @@
                         "Label": "in1",
                         "Name": "lower critical",
                         "Severity": 1,
-                        "Value": 48.45
+                        "Value": 46.0
                     },
                     {
                         "Direction": "greater than",
@@ -3198,7 +3208,7 @@
                         "Label": "in1",
                         "Name": "upper critical",
                         "Severity": 1,
-                        "Value": 53.35
+                        "Value": 54.0
                     },
                     {
                         "Direction": "greater than",
@@ -3271,8 +3281,10 @@
             "SerialNumber": "$BOARD_SERIAL_NUMBER",
             "SparePartNumber": "$BOARD_INFO_AM1"
         },
-        "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
-            "AssetTag": "$PRODUCT_ASSET_TAG"
+        "xyz.openbmc_project.Inventory.Decorator.Compatible": {
+            "Names": [
+                "com.meta.Hardware.Minerva.Boards.FanBoard"
+            ]
         }
     }
 ]

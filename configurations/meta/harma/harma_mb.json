@@ -121,6 +121,7 @@
                 ],
                 "Type": "ADC128D818",
                 "in0_Name": "MB_P3V_BAT_VOLT_V",
+                "in0_PollRate": 86400,
                 "in0_Scale": 333.333333,
                 "in1_Name": "MB_PVDD11_S3_VOLT_V",
                 "in1_PowerState": "On",
@@ -266,6 +267,26 @@
                 "Bus": 20,
                 "Name": "Harma_MB_Retimer_EEPROM",
                 "Type": "EEPROM_24C64"
+            },
+            {
+                "Name": "MB E1S0",
+                "PresencePinNames": [
+                    "presence-e1s-0"
+                ],
+                "PresencePinValues": [
+                    0
+                ],
+                "Type": "GPIODeviceDetect"
+            },
+            {
+                "Name": "MB E1S1",
+                "PresencePinNames": [
+                    "presence-e1s-1"
+                ],
+                "PresencePinValues": [
+                    0
+                ],
+                "Type": "GPIODeviceDetect"
             },
             {
                 "Address": "0x45",
@@ -850,6 +871,7 @@
                 "Address": "0x6a",
                 "Bus": 23,
                 "Name": "MB_E1S0_TEMP_C",
+                "PEC": "Required",
                 "PowerState": "On",
                 "Thresholds": [
                     {
@@ -873,6 +895,7 @@
                 "Address": "0x6a",
                 "Bus": 22,
                 "Name": "MB_E1S1_TEMP_C",
+                "PEC": "Required",
                 "PowerState": "On",
                 "Thresholds": [
                     {
@@ -1331,6 +1354,11 @@
         "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
             "AssetTag": "$PRODUCT_ASSET_TAG"
         },
+        "xyz.openbmc_project.Inventory.Decorator.Compatible": {
+            "Names": [
+                "com.meta.Hardware.Harma.Boards.MB"
+            ]
+        },
         "xyz.openbmc_project.Inventory.Item.Board.Motherboard": {}
     },
     {
@@ -1395,7 +1423,7 @@
                 "DCoefficient": 0.0,
                 "FFGainCoefficient": 0.0,
                 "FFOffCoefficient": 0.0,
-                "ICoefficient": -0.0035,
+                "ICoefficient": -0.1,
                 "ILimitMax": 100,
                 "ILimitMin": -50,
                 "InputUnavailableAsFailed": false,
@@ -1406,7 +1434,7 @@
                 "NegativeHysteresis": 2.0,
                 "OutLimitMax": 100,
                 "OutLimitMin": 0,
-                "PCoefficient": -1.0,
+                "PCoefficient": -3.0,
                 "PositiveHysteresis": 0.0,
                 "SetPoint": 79.0,
                 "SlewNeg": 0.0,
@@ -1661,6 +1689,77 @@
                 ],
                 "PositiveHysteresis": 0.0,
                 "Reading": [
+                    80.0,
+                    90.0,
+                    100.0
+                ],
+                "Type": "Stepwise",
+                "Zones": [
+                    "Zone 0"
+                ]
+            },
+            {
+                "Class": "temp",
+                "InputUnavailableAsFailed": false,
+                "Inputs": [
+                    "MINERVA_AEGIS_UBC1_P12V_TEMP_C",
+                    "MINERVA_AEGIS_UBC2_P12V_TEMP_C"
+                ],
+                "Name": "Stepwise_Aegis_UBC",
+                "NegativeHysteresis": 2.0,
+                "Output": [
+                    30.0,
+                    35.0,
+                    40.0,
+                    90.0
+                ],
+                "PositiveHysteresis": 0.0,
+                "Reading": [
+                    85.0,
+                    90.0,
+                    95.0,
+                    100.0
+                ],
+                "Type": "Stepwise",
+                "Zones": [
+                    "Zone 0"
+                ]
+            },
+            {
+                "Class": "temp",
+                "InputUnavailableAsFailed": false,
+                "Inputs": [
+                    "MINERVA_AEGIS_VR_ASIC_P0V4_VDDQL_HBM0_HBM2_HBM4_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V4_VDDQL_HBM1_HBM3_HBM5_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P1V1_VDDC_HBM0_HBM2_HBM4_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P1V1_VDDC_HBM1_HBM3_HBM5_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P1V8_VPP_HBM0_HBM2_HBM4_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P1V8_VPP_HBM1_HBM3_HBM5_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V75_MAX_PHY_N_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V75_MAX_PHY_S_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V75_PVDD_CH_N_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V75_PVDD_CH_S_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V75_TRVDD_ZONEA_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V75_TRVDD_ZONEB_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V9_TRVDD_ZONEA_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V9_TRVDD_ZONEB_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V85_PVDD_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V75_VDDPHY_HBM0_HBM2_HBM4_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V75_VDDPHY_HBM1_HBM3_HBM5_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P0V8_VDDA_PCIE_TEMP_C",
+                    "MINERVA_AEGIS_VR_ASIC_P1V2_VDDHTX_PCIE_TEMP_C"
+                ],
+                "Name": "Stepwise_Aegis_VR",
+                "NegativeHysteresis": 2.0,
+                "Output": [
+                    15.0,
+                    20.0,
+                    30.0,
+                    90.0
+                ],
+                "PositiveHysteresis": 0.0,
+                "Reading": [
+                    70.0,
                     80.0,
                     90.0,
                     100.0

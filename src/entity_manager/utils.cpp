@@ -1,5 +1,6 @@
 #include "utils.hpp"
 
+#include "../dbus_regex.hpp"
 #include "../utils.hpp"
 #include "../variant_visitors.hpp"
 #include "expression.hpp"
@@ -9,8 +10,6 @@
 
 #include <fstream>
 #include <regex>
-
-const std::regex illegalDbusMemberRegex("[^A-Za-z0-9_]");
 
 namespace em_utils
 {
@@ -70,20 +69,14 @@ void handleLeftOverTemplateVars(nlohmann::json& value)
         value.get_ptr<nlohmann::json::object_t*>();
     if (objPtr != nullptr)
     {
-        for (auto& nextLayer : *objPtr)
-        {
-            handleLeftOverTemplateVars(nextLayer.second);
-        }
+        handleLeftOverTemplateVars(*objPtr);
         return;
     }
 
     nlohmann::json::array_t* arrPtr = value.get_ptr<nlohmann::json::array_t*>();
     if (arrPtr != nullptr)
     {
-        for (auto& nextLayer : *arrPtr)
-        {
-            handleLeftOverTemplateVars(nextLayer);
-        }
+        handleLeftOverTemplateVars(*arrPtr);
         return;
     }
 
@@ -92,43 +85,75 @@ void handleLeftOverTemplateVars(nlohmann::json& value)
     {
         return;
     }
+    handleLeftOverTemplateVars(*strPtr);
+}
 
-    // Walking through the string to find $<templateVar>
-    while (true)
+void handleLeftOverTemplateVars(nlohmann::json::object_t& value)
+{
+    for (auto& nextLayer : value)
     {
-        std::ranges::subrange<std::string::const_iterator> findStart =
-            iFindFirst(*strPtr, std::string_view(templateChar));
-
-        if (!findStart)
-        {
-            break;
-        }
-
-        std::ranges::subrange<std::string::iterator> searchRange(
-            strPtr->begin() + (findStart.end() - strPtr->begin()),
-            strPtr->end());
-        std::ranges::subrange<std::string::const_iterator> findSpace =
-            iFindFirst(searchRange, " ");
-
-        std::string::const_iterator templateVarEnd;
-
-        if (!findSpace)
-        {
-            // No space means the template var spans to the end of
-            // of the keyPair value
-            templateVarEnd = strPtr->end();
-        }
-        else
-        {
-            // A space marks the end of a template var
-            templateVarEnd = findSpace.begin();
-        }
-
-        lg2::error(
-            "There's still template variable {VAR} un-replaced. Removing it from the string.\n",
-            "VAR", std::string(findStart.begin(), templateVarEnd));
-        strPtr->erase(findStart.begin(), templateVarEnd);
+        handleLeftOverTemplateVars(nextLayer.second);
     }
+}
+
+void handleLeftOverTemplateVars(nlohmann::json::array_t& value)
+{
+    for (auto& nextLayer : value)
+    {
+        handleLeftOverTemplateVars(nextLayer);
+    }
+}
+
+// @brief    finds a template var in a string
+// @returns  subrange where the template var was found
+// @returns  std::nullopt  if no template var was found
+static std::optional<std::ranges::subrange<std::string::const_iterator>>
+    findLeftOverTemplateVar(std::string& value)
+{
+    // Walking through the string to find $<templateVar>
+    const std::ranges::subrange<std::string::const_iterator> findStart =
+        iFindFirst(value, std::string_view(templateChar));
+
+    if (!findStart)
+    {
+        return std::nullopt;
+    }
+
+    const std::ranges::subrange<std::string::const_iterator> searchRange(
+        findStart.end(), value.end());
+
+    const std::ranges::subrange<std::string::const_iterator> findSpace =
+        iFindFirst(searchRange, " ");
+
+    // No space means the template var spans to the end of
+    // of the keyPair value, otherwise a space marks the end
+
+    return std::ranges::subrange<std::string::const_iterator>(
+        findStart.begin(), (findSpace) ? findSpace.begin() : value.end());
+}
+
+static bool handleLeftOverTemplateVarOnce(std::string& value)
+{
+    const std::optional<std::ranges::subrange<std::string::const_iterator>> tv =
+        findLeftOverTemplateVar(value);
+
+    if (!tv.has_value())
+    {
+        return false;
+    }
+
+    lg2::error(
+        "There's still template variable {VAR} un-replaced. Removing it from the string.\n",
+        "VAR", tv.value());
+    value.erase(tv.value().begin(), tv.value().end());
+
+    return true;
+}
+
+void handleLeftOverTemplateVars(std::string& value)
+{
+    while (handleLeftOverTemplateVarOnce(value))
+    {}
 }
 
 // Replaces the template character like the other version of this function,
@@ -157,49 +182,10 @@ std::optional<std::string> templateCharReplace(
     return std::nullopt;
 }
 
-// finds the template character (currently set to $) and replaces the value with
-// the field found in a dbus object i.e. $ADDRESS would get populated with the
-// ADDRESS field from a object on dbus
-std::optional<std::string> templateCharReplace(
-    nlohmann::json& value, const DBusInterface& interface, const size_t index,
-    const std::optional<std::string>& replaceStr)
+static bool templateCharReplaceLoop(
+    std::string*& strPtr, const DBusInterface& interface,
+    std::optional<std::string>& ret, nlohmann::json& value)
 {
-    std::optional<std::string> ret = std::nullopt;
-
-    nlohmann::json::object_t* objPtr =
-        value.get_ptr<nlohmann::json::object_t*>();
-    if (objPtr != nullptr)
-    {
-        for (auto& [key, value] : *objPtr)
-        {
-            templateCharReplace(value, interface, index, replaceStr);
-        }
-        return ret;
-    }
-
-    nlohmann::json::array_t* arrPtr = value.get_ptr<nlohmann::json::array_t*>();
-    if (arrPtr != nullptr)
-    {
-        for (auto& value : *arrPtr)
-        {
-            templateCharReplace(value, interface, index, replaceStr);
-        }
-        return ret;
-    }
-
-    std::string* strPtr = value.get_ptr<std::string*>();
-    if (strPtr == nullptr)
-    {
-        return ret;
-    }
-
-    replaceAll(*strPtr, std::string(templateChar) + "index",
-               std::to_string(index));
-    if (replaceStr)
-    {
-        replaceAll(*strPtr, *replaceStr, std::to_string(index));
-    }
-
     for (const auto& [propName, propValue] : interface)
     {
         std::string templateName = templateChar + propName;
@@ -216,7 +202,7 @@ std::optional<std::string> templateCharReplace(
         if ((start == 0U) && find.end() == strPtr->end())
         {
             std::visit([&](auto&& val) { value = val; }, propValue);
-            return ret;
+            return true;
         }
 
         constexpr const std::array<char, 5> mathChars = {'+', '-', '%', '*',
@@ -255,7 +241,7 @@ std::optional<std::string> templateCharReplace(
 
         // we assume that the replacement is a number, because we can
         // only do math on numbers.. we might concatenate strings in the
-        // future, but thats later
+        // future, but that's later
         int number = std::visit(VariantToIntVisitor(), propValue);
         auto exprBegin = splitResult.begin();
         auto exprEnd = splitResult.end();
@@ -285,13 +271,34 @@ std::optional<std::string> templateCharReplace(
         }
     }
 
-    strPtr = value.get_ptr<std::string*>();
-    if (strPtr == nullptr)
-    {
-        return ret;
-    }
+    return false;
+}
 
-    std::string_view strView = *strPtr;
+static void templateCharReplaceObj(
+    nlohmann::json::object_t& objPtr, const DBusInterface& interface,
+    const size_t index, const std::optional<std::string>& replaceStr)
+{
+    for (auto& [key, value] : objPtr)
+    {
+        templateCharReplace(value, interface, index, replaceStr);
+    }
+}
+
+static void templateCharReplaceArray(
+    nlohmann::json::array_t& arrayPtr, const DBusInterface& interface,
+    const size_t index, const std::optional<std::string>& replaceStr)
+{
+    for (auto& value : arrayPtr)
+    {
+        templateCharReplace(value, interface, index, replaceStr);
+    }
+}
+
+// @param strView: string to parse as number
+// @param strView: may be in base 10 or base 16 with '0x' prefix
+// @returns uint64_t number if it can be parsed as such
+static std::optional<uint64_t> parseAsNumber(std::string_view strView)
+{
     int base = 10;
     if (strView.starts_with("0x"))
     {
@@ -305,7 +312,64 @@ std::optional<std::string> templateCharReplace(
         fromCharsWrapper(strView, temp, fullMatch, base);
     if (res.ec == std::errc{} && fullMatch)
     {
-        value = temp;
+        return temp;
+    }
+
+    return std::nullopt;
+}
+
+// finds the template character (currently set to $) and replaces the value with
+// the field found in a dbus object i.e. $ADDRESS would get populated with the
+// ADDRESS field from a object on dbus
+std::optional<std::string> templateCharReplace(
+    nlohmann::json& value, const DBusInterface& interface, const size_t index,
+    const std::optional<std::string>& replaceStr)
+{
+    std::optional<std::string> ret = std::nullopt;
+
+    nlohmann::json::object_t* objPtr =
+        value.get_ptr<nlohmann::json::object_t*>();
+    if (objPtr != nullptr)
+    {
+        templateCharReplaceObj(*objPtr, interface, index, replaceStr);
+        return ret;
+    }
+
+    nlohmann::json::array_t* arrPtr = value.get_ptr<nlohmann::json::array_t*>();
+    if (arrPtr != nullptr)
+    {
+        templateCharReplaceArray(*arrPtr, interface, index, replaceStr);
+        return ret;
+    }
+
+    std::string* strPtr = value.get_ptr<std::string*>();
+    if (strPtr == nullptr)
+    {
+        return ret;
+    }
+
+    replaceAll(*strPtr, std::string(templateChar) + "index",
+               std::to_string(index));
+    if (replaceStr)
+    {
+        replaceAll(*strPtr, *replaceStr, std::to_string(index));
+    }
+
+    if (templateCharReplaceLoop(strPtr, interface, ret, value))
+    {
+        return ret;
+    }
+
+    strPtr = value.get_ptr<std::string*>();
+    if (strPtr == nullptr)
+    {
+        return ret;
+    }
+
+    const std::optional<uint64_t> optNum = parseAsNumber(*strPtr);
+    if (optNum.has_value())
+    {
+        value = optNum.value();
     }
 
     return ret;
@@ -316,8 +380,8 @@ std::string buildInventorySystemPath(std::string& boardName,
 {
     std::string path = "/xyz/openbmc_project/inventory/system/";
     std::string boardTypeLower = toLowerCopy(boardType);
-    std::regex_replace(boardName.begin(), boardName.begin(), boardName.end(),
-                       illegalDbusMemberRegex, "_");
+
+    boardName = dbus_regex::sanitizeForDBusMember(boardName);
 
     return std::format("{}{}/{}", path, boardTypeLower, boardName);
 }

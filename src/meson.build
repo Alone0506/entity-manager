@@ -2,6 +2,13 @@ cpp_args = boost_args + ['-DPACKAGE_DIR="' + packagedir + '/"']
 cpp_args += ['-DSYSCONF_DIR="' + sysconfdir + '/"']
 installdir = join_paths(get_option('libexecdir'), 'entity-manager')
 
+utils_lib = static_library(
+    'utils',
+    'utils.cpp',
+    'dbus_regex.cpp',
+    dependencies: [boost, phosphor_logging_dep, sdbusplus],
+)
+
 subdir('entity_manager')
 
 if get_option('fru-device')

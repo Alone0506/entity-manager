@@ -172,6 +172,11 @@
             ]
         },
         {
+            "Name": "BladePort $bus % 15",
+            "PortType": "contained_by",
+            "Type": "Port"
+        },
+        {
             "Class": "temp",
             "InputUnavailableAsFailed": false,
             "Inputs": [
@@ -483,7 +488,7 @@
         }
     ],
     "Name": "Yosemite 4 Sentinel Dome T2 with Retimer Slot $bus % 15",
-    "Probe": "xyz.openbmc_project.FruDevice({'BOARD_PRODUCT_NAME': 'Sentinel Dome Retimer.*', 'PRODUCT_PRODUCT_NAME': 'Yosemite V4', 'PRODUCT_INFO_AM2': 'Yosemite V4 T2'})",
+    "Probe": "xyz.openbmc_project.FruDevice({'BOARD_PRODUCT_NAME': 'Sentinel Dome Retimer.*', 'PRODUCT_PRODUCT_NAME': 'Yosemite V4', 'PRODUCT_INFO_AM2': 'Yosemite V4 T2', 'BOARD_MANUFACTURER': '(Quanta|Wiwynn)'})",
     "Type": "Board",
     "xyz.openbmc_project.Inventory.Decorator.Asset": {
         "BuildDate": "$BOARD_MANUFACTURE_DATE",
@@ -493,11 +498,15 @@
         "SerialNumber": "$BOARD_SERIAL_NUMBER",
         "SparePartNumber": "$BOARD_INFO_AM1"
     },
+    "xyz.openbmc_project.Inventory.Decorator.ManagedHost": {
+        "HostIndex": "$bus % 15"
+    },
     "xyz.openbmc_project.Inventory.Decorator.Revision": {
         "Version": "$PRODUCT_VERSION"
     },
     "xyz.openbmc_project.Inventory.Decorator.Slot": {
         "SlotNumber": "$bus % 15"
     },
-    "xyz.openbmc_project.Inventory.Item.Board.Motherboard": {}
+    "xyz.openbmc_project.Inventory.Item.Board.Motherboard": {},
+    "xyz.openbmc_project.Inventory.Item.System": {}
 }

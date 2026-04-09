@@ -3,19 +3,28 @@
         {
             "Address": "$address",
             "Bus": "$bus",
-            "Name": "NVIDIA CBC FRU $bus % 2 * 2 + $address % 2",
+            "Name": "SanMiguel SMM Extender FRU",
             "Type": "EEPROM"
+        },
+        {
+            "Address": "0x6a",
+            "Bus": 13,
+            "Name": "SMM_EXT_BOOTDRIVE_TEMP_C",
+            "PEC": "Required",
+            "PowerState": "On",
+            "Type": "NVME1000"
         }
     ],
-    "Name": "NVIDIA Cable Cartridge $bus % 2 * 2 + $address % 2",
-    "Probe": "xyz.openbmc_project.FruDevice({'BOARD_PRODUCT_NAME': '18x1RU CBL Cartridge', 'BOARD_MANUFACTURER': 'Nvidia'})",
+    "Name": "SanMiguel SMM Extender",
+    "Probe": "xyz.openbmc_project.FruDevice({'BOARD_PRODUCT_NAME': 'San Miguel SMM Extender ', 'BOARD_MANUFACTURER': 'Quanta'})",
     "Type": "Board",
     "xyz.openbmc_project.Inventory.Decorator.Asset": {
         "BuildDate": "$BOARD_MANUFACTURE_DATE",
         "Manufacturer": "$BOARD_MANUFACTURER",
         "Model": "$BOARD_PRODUCT_NAME",
         "PartNumber": "$BOARD_PART_NUMBER",
-        "SerialNumber": "$BOARD_SERIAL_NUMBER"
+        "SerialNumber": "$BOARD_SERIAL_NUMBER",
+        "SparePartNumber": "$BOARD_INFO_AM1"
     },
     "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
         "AssetTag": "$PRODUCT_ASSET_TAG"

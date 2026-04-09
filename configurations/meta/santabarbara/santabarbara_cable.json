@@ -3,14 +3,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'E1SBP_Cable_0A'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'E1SBP_Cable_0A', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101145"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -22,14 +22,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'SWB_Cable_0B'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'SWB_Cable_0B', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101137"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -41,14 +41,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_1A'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_1A', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100990"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -60,14 +60,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_1B'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_1B', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100995"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -79,14 +79,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_2A'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_2A', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101133"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -98,14 +98,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_2B'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_2B', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101134"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -117,14 +117,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_3A'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_3A', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101135"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -136,14 +136,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_3B'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_3B', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101136"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -155,14 +155,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_4A'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_4A', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101131"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -174,14 +174,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_4B'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Rainbow_Cable_4B', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101132"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -193,14 +193,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'PDB_Cable_J311'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'PDB_Cable_J311', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-100826"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -212,14 +212,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'PDB_Cable_J312'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'PDB_Cable_J312', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101142"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -231,14 +231,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'PDB_Cable_J313'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'PDB_Cable_J313', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101143"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -250,14 +250,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'PDB_Cable_J314'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'PDB_Cable_J314', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101144"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -269,14 +269,14 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Leak_Cable_1'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Leak_Cable_1', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101165"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
@@ -288,18 +288,132 @@
         "Exposes": [],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Leak_Cable_2'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'Leak_Cable_2', 'Compatible': 'com.meta.Hardware.BMC.Model.Santabarbara'})"
         ],
         "Type": "Cable",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
             "SparePartNumber": "07-101165"
         },
         "xyz.openbmc_project.Inventory.Decorator.Cable": {
             "Length": 0.175,
+            "Type": "Copper"
+        }
+    },
+    {
+        "Exposes": [],
+        "Name": "$Name",
+        "Probe": [
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'SWB_Cable_MCIO0', 'Compatible': 'com.meta.Hardware.Santabarbara.Boards.PCIe_Switch_Board'})"
+        ],
+        "Type": "Cable",
+        "xyz.openbmc_project.Inventory.Decorator.Asset": {
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
+            "SparePartNumber": "07-101130"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Cable": {
+            "Length": 0.38,
+            "Type": "Copper"
+        }
+    },
+    {
+        "Exposes": [],
+        "Name": "$Name",
+        "Probe": [
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'SWB_Cable_MCIO1', 'Compatible': 'com.meta.Hardware.Santabarbara.Boards.PCIe_Switch_Board'})"
+        ],
+        "Type": "Cable",
+        "xyz.openbmc_project.Inventory.Decorator.Asset": {
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
+            "SparePartNumber": "07-101129"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Cable": {
+            "Length": 0.391,
+            "Type": "Copper"
+        }
+    },
+    {
+        "Exposes": [],
+        "Name": "$Name",
+        "Probe": [
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'SWB_Cable_MCIO2', 'Compatible': 'com.meta.Hardware.Santabarbara.Boards.PCIe_Switch_Board'})"
+        ],
+        "Type": "Cable",
+        "xyz.openbmc_project.Inventory.Decorator.Asset": {
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
+            "SparePartNumber": "07-101128"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Cable": {
+            "Length": 0.945,
+            "Type": "Copper"
+        }
+    },
+    {
+        "Exposes": [],
+        "Name": "$Name",
+        "Probe": [
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'SWB_Cable_MCIO3', 'Compatible': 'com.meta.Hardware.Santabarbara.Boards.PCIe_Switch_Board'})"
+        ],
+        "Type": "Cable",
+        "xyz.openbmc_project.Inventory.Decorator.Asset": {
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
+            "SparePartNumber": "07-101127"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Cable": {
+            "Length": 0.795,
+            "Type": "Copper"
+        }
+    },
+    {
+        "Exposes": [],
+        "Name": "$Name",
+        "Probe": [
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'SWB_Cable_J1', 'Compatible': 'com.meta.Hardware.Santabarbara.Boards.PCIe_Switch_Board'})"
+        ],
+        "Type": "Cable",
+        "xyz.openbmc_project.Inventory.Decorator.Asset": {
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
+            "SparePartNumber": "07-101167"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Cable": {
+            "Length": 0.06,
+            "Type": "Copper"
+        }
+    },
+    {
+        "Exposes": [],
+        "Name": "$Name",
+        "Probe": [
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': 'SWB_Cable_J2', 'Compatible': 'com.meta.Hardware.Santabarbara.Boards.PCIe_Switch_Board'})"
+        ],
+        "Type": "Cable",
+        "xyz.openbmc_project.Inventory.Decorator.Asset": {
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
+            "SparePartNumber": "07-101124"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Cable": {
+            "Length": 0.06,
             "Type": "Copper"
         }
     }

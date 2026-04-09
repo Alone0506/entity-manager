@@ -1132,7 +1132,7 @@
                     "Label": "vout1",
                     "Name": "lower critical",
                     "Severity": 1,
-                    "Value": 1.76
+                    "Value": 1.68
                 },
                 {
                     "Direction": "greater than",
@@ -1140,7 +1140,7 @@
                     "Label": "vout1",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 1.83
+                    "Value": 1.85
                 },
                 {
                     "Direction": "greater than",
@@ -1188,7 +1188,7 @@
                 "CompatibleHardware": "com.meta.Hardware.Yosemite5.VR.TDA38640A_pvdd18_s5",
                 "VendorIANA": 40981
             },
-            "Name": "Yosemite5_MB_VR_PVDD18_S5",
+            "Name": "Yosemite5_MB_VR_VDD18_S5",
             "Type": "TDA38640AFirmware"
         },
         {
@@ -1419,7 +1419,7 @@
                     "Label": "iout1",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 341.0
+                    "Value": 410
                 },
                 {
                     "Direction": "greater than",
@@ -1427,7 +1427,7 @@
                     "Label": "pout1",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 409.2
+                    "Value": 537.24
                 },
                 {
                     "Direction": "less than",
@@ -1511,7 +1511,7 @@
                 "CompatibleHardware": "com.meta.Hardware.Yosemite5.VR.XDPE192C3E_pvddcr_soc",
                 "VendorIANA": 40981
             },
-            "Name": "Yosemite5_MB_VR_SOC",
+            "Name": "Yosemite5_MB_VR_SOC_VDDIO",
             "Type": "XDPE1X2XXFirmware"
         },
         {
@@ -1531,7 +1531,7 @@
                 "CompatibleHardware": "com.meta.Hardware.Yosemite5.VR.XDPE1D2G3B_pvddcr_cpu0",
                 "VendorIANA": 40981
             },
-            "Name": "Yosemite5_MB_VR_CPU0",
+            "Name": "Yosemite5_MB_VR_CPU0_MEM",
             "Type": "XDPE1X2XXFirmware"
         }
     ],
@@ -1552,5 +1552,6 @@
     },
     "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
         "AssetTag": "$PRODUCT_ASSET_TAG"
-    }
+    },
+    "xyz.openbmc_project.Inventory.Item.Board.Motherboard": {}
 }

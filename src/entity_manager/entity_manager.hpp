@@ -48,6 +48,9 @@ class EntityManager
     power::PowerStatusMonitor powerStatus;
 
     void propertiesChangedCallback();
+    void propertiesChangedCallbackDebounced(
+        size_t count, const boost::system::error_code& ec);
+
     void registerCallback(const std::string& path);
     void publishNewConfiguration(const size_t& instance, size_t count,
                                  boost::asio::steady_timer& timer,
@@ -88,7 +91,7 @@ class EntityManager
     std::flat_map<std::string, sdbusplus::bus::match_t, std::less<>>
         dbusMatches;
 
-    void startRemovedTimer(boost::asio::steady_timer& timer,
-                           nlohmann::json& systemConfiguration);
+    void startRemovedTimer(boost::asio::steady_timer& timer);
+
     void initFilters(const std::unordered_set<std::string>& probeInterfaces);
 };

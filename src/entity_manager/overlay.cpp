@@ -3,6 +3,7 @@
 
 #include "overlay.hpp"
 
+#include "../dbus_regex.hpp"
 #include "../utils.hpp"
 #include "devices.hpp"
 #include "utils.hpp"
@@ -17,15 +18,12 @@
 #include <flat_map>
 #include <fstream>
 #include <iomanip>
-#include <regex>
 #include <string>
 
 constexpr const char* outputDir = "/tmp/overlays";
 constexpr const char* templateChar = "$";
 constexpr const char* i2CDevsDir = "/sys/bus/i2c/devices";
 constexpr const char* muxSymlinkDir = "/dev/i2c-mux";
-
-const std::regex illegalNameRegex("[^A-Za-z0-9_]");
 
 // helper function to make json types into string
 std::string jsonToString(const nlohmann::json& in)
@@ -160,6 +158,9 @@ static int buildDevice(
         return -1;
     }
 
+    lg2::debug("try to build device {NAME} at bus={BUS}, address={ADDR}",
+               "NAME", name, "BUS", bus, "ADDR", address);
+
     // If it's already instantiated, we don't need to create it again.
     if (!deviceIsCreated(busPath, bus, address, hasHWMonDir))
     {
@@ -225,8 +226,8 @@ void exportDevice(const devices::ExportTemplate& exportTemplate,
         if (keyPair.key() == "Name" &&
             keyPair.value().type() == nlohmann::json::value_t::string)
         {
-            subsituteString = std::regex_replace(
-                keyPair.value().get<std::string>(), illegalNameRegex, "_");
+            subsituteString = dbus_regex::sanitizeForDBusMember(
+                keyPair.value().get<std::string>());
             name = subsituteString;
         }
         else
@@ -263,6 +264,8 @@ void exportDevice(const devices::ExportTemplate& exportTemplate,
 bool loadOverlays(const nlohmann::json& systemConfiguration,
                   boost::asio::io_context& io)
 {
+    lg2::debug("start loading device overlays");
+
     std::filesystem::create_directory(outputDir);
     for (auto entity = systemConfiguration.begin();
          entity != systemConfiguration.end(); entity++)
@@ -306,6 +309,8 @@ bool loadOverlays(const nlohmann::json& systemConfiguration,
                        "TYPE", type);
         }
     }
+
+    lg2::debug("finish loading device overlays");
 
     return true;
 }

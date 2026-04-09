@@ -53,9 +53,11 @@
                         "MP297XFirmware",
                         "MP5998Firmware",
                         "MP994XFirmware",
+                        "MPQ87XXFirmware",
                         "RAA22XGen2Firmware",
                         "RAA22XGen3p5Firmware",
-                        "TDA38640AFirmware"
+                        "TDA38640AFirmware",
+                        "XDP71XFirmware"
                     ]
                 },
                 "Bus": {
@@ -118,7 +120,7 @@
                 },
                 "Type": {
                     "description": "The type of configuration object",
-                    "enum": ["PT5161LFirmware"]
+                    "enum": ["PT5161LFirmware", "PT5081LFirmware"]
                 },
                 "Bus": {
                     "$ref": "legacy.json#/$defs/Types/Bus"

@@ -571,7 +571,7 @@
                     "Label": "vout1",
                     "Name": "lower critical",
                     "Severity": 1,
-                    "Value": 1.76
+                    "Value": 1.68
                 },
                 {
                     "Direction": "greater than",
@@ -579,7 +579,7 @@
                     "Label": "vout1",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 1.83
+                    "Value": 1.85
                 },
                 {
                     "Direction": "greater than",
@@ -627,7 +627,7 @@
                 "CompatibleHardware": "com.meta.Hardware.Yosemite5.VR.MP9945_pvdd18_s5",
                 "VendorIANA": 40981
             },
-            "Name": "Yosemite5_MB_VR_18_S5",
+            "Name": "Yosemite5_MB_VR_VDD18_S5",
             "Type": "MP994XFirmware"
         },
         {
@@ -904,7 +904,7 @@
                     "Label": "iout1",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 341.0
+                    "Value": 410
                 },
                 {
                     "Direction": "greater than",
@@ -912,7 +912,7 @@
                     "Label": "pout1",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 409.2
+                    "Value": 537.24
                 },
                 {
                     "Direction": "less than",
@@ -996,7 +996,7 @@
                 "CompatibleHardware": "com.meta.Hardware.Yosemite5.VR.RAA229640_pvddcr_soc",
                 "VendorIANA": 40981
             },
-            "Name": "Yosemite5_MB_VR_SOC",
+            "Name": "Yosemite5_MB_VR_SOC_VDDIO",
             "Type": "RAA22XGen3p5Firmware"
         },
         {
@@ -1016,7 +1016,7 @@
                 "CompatibleHardware": "com.meta.Hardware.Yosemite5.VR.RAA229639_pvddcr_cpu0",
                 "VendorIANA": 40981
             },
-            "Name": "Yosemite5_MB_VR_CPU0",
+            "Name": "Yosemite5_MB_VR_CPU0_MEM",
             "Type": "RAA22XGen3p5Firmware"
         },
         {
@@ -1552,5 +1552,6 @@
     },
     "xyz.openbmc_project.Inventory.Decorator.AssetTag": {
         "AssetTag": "$PRODUCT_ASSET_TAG"
-    }
+    },
+    "xyz.openbmc_project.Inventory.Item.Board.Motherboard": {}
 }

@@ -6,13 +6,14 @@ detect_mode = get_option('fru-device-16bitdetectmode')
 
 cpp_args_fd += [
     '-DFRU_DEVICE_16BITDETECTMODE="' + detect_mode + '"',
-    '-DENABLE_FRU_UPDATE_PROPERTY=' + (get_option('fru-device-update-property') == 'all' ? '1' : '0'),
+    '-DENABLE_FRU_UPDATE_PROPERTY=' + (
+        get_option('fru-device-update-property') == 'all' ? '1' : '0'
+    ),
 ]
 
 executable(
     'fru-device',
     'fru_device.cpp',
-    '../utils.cpp',
     'fru_reader.cpp',
     'fru_utils.cpp',
     'gzip_utils.cpp',
@@ -28,6 +29,7 @@ executable(
         valijson,
         zlib_dep,
     ],
+    link_with: utils_lib,
     install: true,
     install_dir: installdir,
 )

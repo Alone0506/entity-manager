@@ -3,6 +3,7 @@
 
 #include "entity_manager.hpp"
 
+#include "../dbus_regex.hpp"
 #include "../utils.hpp"
 #include "../variant_visitors.hpp"
 #include "configuration.hpp"
@@ -38,9 +39,6 @@ constexpr const char* lastConfiguration = "/tmp/configuration/last.json";
 
 static constexpr std::array<const char*, 6> settableInterfaces = {
     "FanProfile", "Pid", "Pid.Zone", "Stepwise", "Thresholds", "Polling"};
-
-const std::regex illegalDbusPathRegex("[^A-Za-z0-9_.]");
-const std::regex illegalDbusMemberRegex("[^A-Za-z0-9_]");
 
 sdbusplus::asio::PropertyPermission getPermission(const std::string& interface)
 {
@@ -145,9 +143,8 @@ void EntityManager::postBoardToDBus(
     if (findBoardType != boardValues.end() &&
         findBoardType->type() == nlohmann::json::value_t::string)
     {
-        boardType = findBoardType->get<std::string>();
-        std::regex_replace(boardType.begin(), boardType.begin(),
-                           boardType.end(), illegalDbusMemberRegex, "_");
+        boardType = dbus_regex::sanitizeForDBusMember(
+            findBoardType->get<std::string>());
     }
     else
     {
@@ -156,6 +153,9 @@ void EntityManager::postBoardToDBus(
         boardType = "Chassis";
     }
 
+    lg2::debug("post {TYPE} '{NAME}' to DBus", "TYPE", boardType, "NAME",
+               boardName);
+
     const std::string boardPath =
         em_utils::buildInventorySystemPath(boardName, boardType);
 
@@ -163,7 +163,7 @@ void EntityManager::postBoardToDBus(
         dbus_interface.createInterface(
             boardPath,
             sdbusplus::common::xyz::openbmc_project::inventory::Item::interface,
-            boardName);
+            boardNameOrig);
 
     const std::string invItemIntf = std::format(
         "{}.{}",
@@ -241,20 +241,16 @@ void EntityManager::postExposesRecordsToDBus(
         }
     }
     auto findType = item.find("Type");
-    std::string itemType;
+    std::string itemType = "unknown";
     if (findType != item.end())
     {
-        itemType = findType->get<std::string>();
-        std::regex_replace(itemType.begin(), itemType.begin(), itemType.end(),
-                           illegalDbusPathRegex, "_");
+        itemType =
+            dbus_regex::sanitizeForDBusPath(findType->get<std::string>());
     }
-    else
-    {
-        itemType = "unknown";
-    }
-    std::string itemName = findName->get<std::string>();
-    std::regex_replace(itemName.begin(), itemName.begin(), itemName.end(),
-                       illegalDbusMemberRegex, "_");
+
+    const std::string itemName =
+        dbus_regex::sanitizeForDBusMember(findName->get<std::string>());
+
     std::string ifacePath = boardPath;
     ifacePath += "/";
     ifacePath += itemName;
@@ -411,8 +407,7 @@ static void pruneDevice(const nlohmann::json& systemConfiguration,
     logDeviceRemoved(device);
 }
 
-void EntityManager::startRemovedTimer(boost::asio::steady_timer& timer,
-                                      nlohmann::json& systemConfiguration)
+void EntityManager::startRemovedTimer(boost::asio::steady_timer& timer)
 {
     if (systemConfiguration.empty() || lastJson.empty())
     {
@@ -429,31 +424,32 @@ void EntityManager::startRemovedTimer(boost::asio::steady_timer& timer,
     }
 
     timer.expires_after(std::chrono::seconds(10));
-    timer.async_wait(
-        [&systemConfiguration, this](const boost::system::error_code& ec) {
-            if (ec == boost::asio::error::operation_aborted)
-            {
-                return;
-            }
+    timer.async_wait([this](const boost::system::error_code& ec) {
+        if (ec == boost::asio::error::operation_aborted)
+        {
+            return;
+        }
 
-            bool powerOff = !powerStatus.isPowerOn();
-            for (const auto& [name, device] : lastJson.items())
-            {
-                pruneDevice(systemConfiguration, powerOff, scannedPowerOff,
-                            name, device);
-            }
+        bool powerOff = !powerStatus.isPowerOn();
+        for (const auto& [name, device] : lastJson.items())
+        {
+            pruneDevice(systemConfiguration, powerOff, scannedPowerOff, name,
+                        device);
+        }
 
-            scannedPowerOff = true;
-            if (!powerOff)
-            {
-                scannedPowerOn = true;
-            }
-        });
+        scannedPowerOff = true;
+        if (!powerOff)
+        {
+            scannedPowerOn = true;
+        }
+    });
 }
 
 void EntityManager::pruneConfiguration(bool powerOff, const std::string& name,
                                        const nlohmann::json& device)
 {
+    lg2::debug("pruning configuration");
+
     if (powerOff && deviceRequiresPowerOn(device))
     {
         // power not on yet, don't know if it's there or not
@@ -500,74 +496,81 @@ void EntityManager::publishNewConfiguration(
         postToDbus(newConfiguration);
         if (count == instance)
         {
-            startRemovedTimer(timer, systemConfiguration);
+            startRemovedTimer(timer);
         }
     });
+}
+
+void EntityManager::propertiesChangedCallbackDebounced(
+    const size_t count, const boost::system::error_code& ec)
+{
+    lg2::debug("properties changed callback timer expired");
+    if (ec == boost::asio::error::operation_aborted)
+    {
+        // we were cancelled
+        return;
+    }
+    if (ec)
+    {
+        lg2::error("async wait error {ERR}", "ERR", ec.message());
+        return;
+    }
+
+    if (propertiesChangedInProgress)
+    {
+        propertiesChangedCallback();
+        return;
+    }
+    propertiesChangedInProgress = true;
+
+    lg2::debug("properties changed callback in progress");
+
+    nlohmann::json oldConfiguration = systemConfiguration;
+    auto missingConfigurations = std::make_shared<nlohmann::json>();
+    *missingConfigurations = systemConfiguration;
+
+    auto perfScan = std::make_shared<scan::PerformScan>(
+        *this, *missingConfigurations, configuration.configurations, io,
+        [this, count, oldConfiguration, missingConfigurations]() {
+            // this is something that since ac has been applied to the
+            // bmc we saw, and we no longer see it
+            bool powerOff = !powerStatus.isPowerOn();
+            for (const auto& [name, device] : missingConfigurations->items())
+            {
+                pruneConfiguration(powerOff, name, device);
+            }
+            nlohmann::json newConfiguration = systemConfiguration;
+
+            deriveNewConfiguration(oldConfiguration, newConfiguration);
+
+            for (const auto& [_, device] : newConfiguration.items())
+            {
+                logDeviceAdded(device);
+            }
+
+            propertiesChangedInProgress = false;
+
+            boost::asio::post(io, [this, newConfiguration, count] {
+                publishNewConfiguration(std::ref(propertiesChangedInstance),
+                                        count, std::ref(propertiesChangedTimer),
+                                        newConfiguration);
+            });
+        });
+    perfScan->run();
 }
 
 // main properties changed entry
 void EntityManager::propertiesChangedCallback()
 {
+    lg2::debug("properties changed callback");
     propertiesChangedInstance++;
     size_t count = propertiesChangedInstance;
 
     propertiesChangedTimer.expires_after(std::chrono::milliseconds(500));
 
     // setup an async wait as we normally get flooded with new requests
-    propertiesChangedTimer.async_wait(
-        [this, count](const boost::system::error_code& ec) {
-            if (ec == boost::asio::error::operation_aborted)
-            {
-                // we were cancelled
-                return;
-            }
-            if (ec)
-            {
-                lg2::error("async wait error {ERR}", "ERR", ec.message());
-                return;
-            }
-
-            if (propertiesChangedInProgress)
-            {
-                propertiesChangedCallback();
-                return;
-            }
-            propertiesChangedInProgress = true;
-
-            nlohmann::json oldConfiguration = systemConfiguration;
-            auto missingConfigurations = std::make_shared<nlohmann::json>();
-            *missingConfigurations = systemConfiguration;
-
-            auto perfScan = std::make_shared<scan::PerformScan>(
-                *this, *missingConfigurations, configuration.configurations, io,
-                [this, count, oldConfiguration, missingConfigurations]() {
-                    // this is something that since ac has been applied to the
-                    // bmc we saw, and we no longer see it
-                    bool powerOff = !powerStatus.isPowerOn();
-                    for (const auto& [name, device] :
-                         missingConfigurations->items())
-                    {
-                        pruneConfiguration(powerOff, name, device);
-                    }
-                    nlohmann::json newConfiguration = systemConfiguration;
-
-                    deriveNewConfiguration(oldConfiguration, newConfiguration);
-
-                    for (const auto& [_, device] : newConfiguration.items())
-                    {
-                        logDeviceAdded(device);
-                    }
-
-                    propertiesChangedInProgress = false;
-
-                    boost::asio::post(io, [this, newConfiguration, count] {
-                        publishNewConfiguration(
-                            std::ref(propertiesChangedInstance), count,
-                            std::ref(propertiesChangedTimer), newConfiguration);
-                    });
-                });
-            perfScan->run();
-        });
+    propertiesChangedTimer.async_wait(std::bind_front(
+        &EntityManager::propertiesChangedCallbackDebounced, this, count));
 }
 
 // Check if InterfacesAdded payload contains an iface that needs probing.
@@ -586,12 +589,9 @@ static bool iaContainsProbeInterface(
 
 // Check if InterfacesRemoved payload contains an iface that needs probing.
 static bool irContainsProbeInterface(
-    sdbusplus::message_t& msg,
+    const std::vector<std::string>& interfaces,
     const std::unordered_set<std::string>& probeInterfaces)
 {
-    sdbusplus::message::object_path path;
-    std::vector<std::string> interfaces;
-    msg.read(path, interfaces);
     return std::ranges::any_of(interfaces,
                                [&probeInterfaces](const auto& ifaceName) {
                                    return probeInterfaces.contains(ifaceName);
@@ -698,8 +698,14 @@ void EntityManager::initFilters(
         static_cast<sdbusplus::bus_t&>(*systemBus),
         sdbusplus::bus::match::rules::interfacesRemoved(),
         [this, probeInterfaces](sdbusplus::message_t& msg) {
-            if (irContainsProbeInterface(msg, probeInterfaces))
+            auto [path, interfaces] =
+                msg.unpack<sdbusplus::message::object_path,
+                           std::vector<std::string>>();
+
+            if (irContainsProbeInterface(interfaces, probeInterfaces))
             {
+                // Clean up match on probe interface removal to avoid leaks
+                dbusMatches.erase(path.str);
                 propertiesChangedCallback();
             }
         });

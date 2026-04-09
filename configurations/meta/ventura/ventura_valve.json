@@ -13,15 +13,15 @@
         ],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^SupplyValve_1$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^SupplyValve_1$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Valve",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
-            "SparePartNumber": "Unknown"
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
+            "SparePartNumber": "NOT_SUPPORTED"
         },
         "xyz.openbmc_project.Inventory.Item.Valve": {
             "Direction": "xyz.openbmc_project.Inventory.Item.Valve.Direction.Supply"
@@ -41,15 +41,15 @@
         ],
         "Name": "$Name",
         "Probe": [
-            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^ReturnValve_1$'})"
+            "xyz.openbmc_project.Inventory.Source.DevicePresence({'Name': '^ReturnValve_1$', 'Compatible': '^com.meta.Hardware.BMC.Model.Ventura$'})"
         ],
         "Type": "Valve",
         "xyz.openbmc_project.Inventory.Decorator.Asset": {
-            "Manufacturer": "Unknown",
-            "Model": "Unknown",
-            "PartNumber": "Unknown",
-            "SerialNumber": "Unknown",
-            "SparePartNumber": "Unknown"
+            "Manufacturer": "NOT_SUPPORTED",
+            "Model": "NOT_SUPPORTED",
+            "PartNumber": "NOT_SUPPORTED",
+            "SerialNumber": "NOT_SUPPORTED",
+            "SparePartNumber": "NOT_SUPPORTED"
         },
         "xyz.openbmc_project.Inventory.Item.Valve": {
             "Direction": "xyz.openbmc_project.Inventory.Item.Valve.Direction.Return"

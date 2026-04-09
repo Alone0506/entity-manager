@@ -108,18 +108,10 @@
                 },
                 {
                     "Direction": "greater than",
-                    "Hysteresis": 2,
+                    "Hysteresis": 2.5,
                     "Label": "temp1",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 100
-                },
-                {
-                    "Direction": "greater than",
-                    "Hysteresis": 2.5,
-                    "Label": "temp1",
-                    "Name": "upper non recoverable",
-                    "Severity": 4,
                     "Value": 125
                 },
                 {
@@ -140,11 +132,13 @@
                 }
             ],
             "Type": "MP5998",
-            "iin_Name": "Paddle_HSC_CURR_A",
-            "pin_Name": "Paddle_HSC_PWR_W",
-            "temp1_Name": "Paddle_HSC_TEMP_C",
-            "vin_Name": "Paddle_HSC_VIN_VOLT_V",
-            "vout1_Name": "Paddle_HSC_VOUT_VOLT_V"
+            "iin_Name": "PADDLE_HSC_CURR_A",
+            "iin_Scale": 333.3333,
+            "pin_Name": "PADDLE_HSC_PWR_W",
+            "pin_Scale": 333333.3333,
+            "temp1_Name": "PADDLE_HSC_TEMP_C",
+            "vin_Name": "PADDLE_HSC_VIN_VOLT_V",
+            "vout1_Name": "PADDLE_HSC_VOUT_VOLT_V"
         },
         {
             "Address": "0x46",
@@ -258,18 +252,10 @@
                 },
                 {
                     "Direction": "greater than",
-                    "Hysteresis": 2,
+                    "Hysteresis": 2.5,
                     "Label": "temp1",
                     "Name": "upper critical",
                     "Severity": 1,
-                    "Value": 100
-                },
-                {
-                    "Direction": "greater than",
-                    "Hysteresis": 2.5,
-                    "Label": "temp1",
-                    "Name": "upper non recoverable",
-                    "Severity": 4,
                     "Value": 125
                 },
                 {
@@ -290,11 +276,11 @@
                 }
             ],
             "Type": "TPS25990",
-            "iin_Name": "Paddle_HSC_CURR_A",
-            "pin_Name": "Paddle_HSC_PWR_W",
-            "temp1_Name": "Paddle_HSC_TEMP_C",
-            "vin_Name": "Paddle_HSC_VIN_VOLT_V",
-            "vout1_Name": "Paddle_HSC_VOUT_VOLT_V"
+            "iin_Name": "PADDLE_HSC_CURR_A",
+            "pin_Name": "PADDLE_HSC_PWR_W",
+            "temp1_Name": "PADDLE_HSC_TEMP_C",
+            "vin_Name": "PADDLE_HSC_VIN_VOLT_V",
+            "vout1_Name": "PADDLE_HSC_VOUT_VOLT_V"
         }
     ],
     "Name": "Yosemite5 1KW Paddle Board",

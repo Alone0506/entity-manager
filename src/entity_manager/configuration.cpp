@@ -41,21 +41,26 @@ void Configuration::loadConfigurations()
         return;
     }
 
-    std::ifstream schemaStream(schemaDirectory / "global.json");
-    if (!schemaStream.good())
+    nlohmann::json schema;
+
+    if constexpr (ENABLE_RUNTIME_VALIDATE_JSON)
     {
-        lg2::error("Cannot open schema file,  cannot validate JSON, exiting");
-        std::exit(EXIT_FAILURE);
-        return;
-    }
-    nlohmann::json schema =
-        nlohmann::json::parse(schemaStream, nullptr, false, true);
-    if (schema.is_discarded())
-    {
-        lg2::error(
-            "Illegal schema file detected, cannot validate JSON, exiting");
-        std::exit(EXIT_FAILURE);
-        return;
+        std::ifstream schemaStream(schemaDirectory / "global.json");
+        if (!schemaStream.good())
+        {
+            lg2::error(
+                "Cannot open schema file,  cannot validate JSON, exiting");
+            std::exit(EXIT_FAILURE);
+            return;
+        }
+        schema = nlohmann::json::parse(schemaStream, nullptr, false, true);
+        if (schema.is_discarded())
+        {
+            lg2::error(
+                "Illegal schema file detected, cannot validate JSON, exiting");
+            std::exit(EXIT_FAILURE);
+            return;
+        }
     }
 
     for (auto& jsonPath : jsonPaths)
@@ -96,14 +101,18 @@ void Configuration::loadConfigurations()
                               std::chrono::steady_clock::now() - start)
                               .count();
 
-    lg2::debug("Finished loading json configuration in {MILLIS}ms", "MILLIS",
-               duration);
+    lg2::debug(
+        "Finished loading {NCONFIGS} json configuration(s) from {NFILES} file(s) in {MILLIS}ms",
+        "NCONFIGS", configurations.size(), "NFILES", jsonPaths.size(), "MILLIS",
+        duration);
 }
 
 // Iterate over new configuration and erase items from old configuration.
 void deriveNewConfiguration(const nlohmann::json& oldConfiguration,
                             nlohmann::json& newConfiguration)
 {
+    lg2::debug("deriving new configuration");
+
     for (auto it = newConfiguration.begin(); it != newConfiguration.end();)
     {
         auto findKey = oldConfiguration.find(it.key());
@@ -194,6 +203,10 @@ bool writeJsonFiles(const nlohmann::json& systemConfiguration)
     {
         return false;
     }
+
+    lg2::debug("writing system configuration to {PATH}", "PATH",
+               currentConfiguration);
+
     std::ofstream output(currentConfiguration);
     if (!output.good())
     {

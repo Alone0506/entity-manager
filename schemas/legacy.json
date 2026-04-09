@@ -383,10 +383,18 @@
                 "Type": {
                     "type": "string",
                     "enum": [
+                        "PCA9537",
+                        "PCA9542Mux",
                         "PCA9543Mux",
                         "PCA9544Mux",
                         "PCA9545Mux",
-                        "PCA9546Mux"
+                        "PCA9546Mux",
+                        "PCA9547Mux",
+                        "PCA9548Mux",
+                        "PCA9846Mux",
+                        "PCA9847Mux",
+                        "PCA9848Mux",
+                        "PCA9849Mux"
                     ]
                 }
             },
@@ -651,6 +659,12 @@
                 "Name": {
                     "$ref": "#/$defs/Types/Name"
                 },
+                "NamePressure": {
+                    "$ref": "#/$defs/Types/Name"
+                },
+                "NameHumidity": {
+                    "$ref": "#/$defs/Types/Name"
+                },
                 "Address": {
                     "$ref": "#/$defs/Types/Address"
                 },
@@ -687,6 +701,7 @@
                 "Type": {
                     "enum": [
                         "ADM1021",
+                        "BME280",
                         "DPS310",
                         "EMC1403",
                         "EMC1412",
@@ -746,9 +761,10 @@
                 "Thresholds": {
                     "$ref": "#/$defs/Types/Thresholds"
                 },
-                "EnablePEC": {
+                "PEC": {
                     "description": "Enable SMBus PEC generation and verification.",
-                    "type": "boolean"
+                    "type": "string",
+                    "enum": ["Required", "NotRequired"]
                 },
                 "Type": {
                     "const": "NVME1000"
@@ -809,6 +825,9 @@
                 "(curr|power|iout)(1[0-7]|[1-9])_Scale$": {
                     "$ref": "#/$defs/Types/ScaleValue"
                 },
+                "in(1[0-7]|[0-9])_PollRate$": {
+                    "$ref": "#/$defs/Types/PollRate"
+                },
                 "in(1[0-7]|[0-9])_PowerState$": {
                     "$ref": "#/$defs/Types/PowerState"
                 },
@@ -821,8 +840,14 @@
                 "power(1[0-7]|[1-9])?_Max$": {
                     "$ref": "#/$defs/Types/MinMaxType"
                 },
-                "(power|curr|iout|pout|pin)(1[0-7]|[1-9])?_Offset$": {
+                "fan1_(Min|Max)$": {
+                    "$ref": "#/$defs/Types/MinMaxType"
+                },
+                "(in|power|curr|iout|iin|pout|pin)(1[0-7]|[1-9])?_Offset$": {
                     "$ref": "#/$defs/Types/OffsetType"
+                },
+                "^(in|in_voltage|vin|vmon|vout|voltage)(1[0-7]|[0-9])?_ShuntResistorInOhms$": {
+                    "$ref": "#/$defs/Types/ShuntResistorInOhms"
                 }
             },
             "properties": {
@@ -843,6 +868,9 @@
                 },
                 "fan1_Name": {
                     "$ref": "#/$defs/Types/Name"
+                },
+                "iin_Scale": {
+                    "$ref": "#/$defs/Types/ScaleValue"
                 },
                 "pin_Scale": {
                     "$ref": "#/$defs/Types/ScaleValue"
@@ -946,7 +974,9 @@
                         "MP2971",
                         "MP2973",
                         "MP2975",
+                        "MP2993",
                         "MP5023",
+                        "MP5926",
                         "MP5990",
                         "MP5998",
                         "MP9945",
@@ -1061,8 +1091,12 @@
                 },
                 "Type": {
                     "const": "BMC"
+                },
+                "FirmwareInfo": {
+                    "$ref": "firmware.json#/$defs/FirmwareInfoDef"
                 }
-            }
+            },
+            "required": ["Name", "Type"]
         },
         "UCD90XXX": {
             "description": "used in https://github.com/openbmc/phosphor-power",
@@ -1163,6 +1197,10 @@
                             "type": "number"
                         },
                         "type": "array"
+                    },
+                    "LED": {
+                        "description": "Name of LED group to assert on lower critical threshold event",
+                        "type": "string"
                     }
                 },
                 "required": ["Name", "Pwm", "Tachs"],
@@ -1312,6 +1350,10 @@
             "ScaleValue": {
                 "type": "number"
             },
+            "ShuntResistorInOhms": {
+                "type": "number",
+                "exclusiveMinimum": 0
+            },
             "SensorType": {
                 "enum": ["current", "power", "voltage"]
             },
@@ -1363,8 +1405,21 @@
                 "type": "number"
             },
             "PollRate": {
+                "description": "Interval in seconds between consecutive polls",
                 "type": "number",
                 "exclusiveMinimum": 0
+            },
+            "Type": {
+                "type": "string",
+                "enum": [
+                    "RAA229621",
+                    "IPSPS1",
+                    "MAX334440",
+                    "MAX31790",
+                    "SIC450",
+                    "PIC32",
+                    "Q50SN12072"
+                ]
             }
         }
     }
