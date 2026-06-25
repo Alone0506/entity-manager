@@ -106,6 +106,9 @@
                     "$ref": "legacy.json#/$defs/ADC"
                 },
                 {
+                    "$ref": "legacy.json#/$defs/DAC"
+                },
+                {
                     "$ref": "legacy.json#/$defs/TempSensor"
                 },
                 {
@@ -169,7 +172,7 @@
                     "$ref": "usb_port.json#/$defs/USBPort"
                 },
                 {
-                    "$ref": "modbus.json#/$defs/ModbusRTUDetect"
+                    "$ref": "valve.json#/$defs/AnalogValve"
                 },
                 {
                     "$ref": "valve.json#/$defs/GPIOValve"

@@ -1,6 +1,129 @@
 {
     "Exposes": [
         {
+            "Address": "0x1f",
+            "Bus": "$bus",
+            "Labels": [
+                "in6",
+                "in7"
+            ],
+            "Name": "BUSBAR_ADC",
+            "Thresholds": [
+                {
+                    "Direction": "less than",
+                    "Label": "in6",
+                    "Name": "lower non recoverable",
+                    "Severity": 4,
+                    "Value": 0.1
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "in6",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 3.74
+                },
+                {
+                    "Direction": "less than",
+                    "Label": "in7",
+                    "Name": "lower non recoverable",
+                    "Severity": 4,
+                    "Value": 0.1
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "in7",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 3.74
+                }
+            ],
+            "Type": "ADC128D818",
+            "in6_Name": "PDB_R_BUSBAR_TSENSE_P2_VOLT_V",
+            "in7_Name": "PDB_R_BUSBAR_TSENSE_P1_VOLT_V"
+        },
+        {
+            "Address": "0x23",
+            "Bus": "$bus",
+            "Labels": [
+                "iout1",
+                "temp1",
+                "vin",
+                "vout1"
+            ],
+            "Name": "PDB_R_P12V_STBY_VRM",
+            "Thresholds": [
+                {
+                    "Direction": "greater than",
+                    "Label": "iout1",
+                    "Name": "upper critical",
+                    "Severity": 1,
+                    "Value": 51
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "iout1",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 56
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "temp1",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 132
+                },
+                {
+                    "Direction": "less than",
+                    "Label": "vin",
+                    "Name": "lower non recoverable",
+                    "Severity": 4,
+                    "Value": 31
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "vin",
+                    "Name": "upper critical",
+                    "Severity": 1,
+                    "Value": 60
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "vin",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 70
+                },
+                {
+                    "Direction": "less than",
+                    "Label": "vout1",
+                    "Name": "lower non critical",
+                    "Severity": 0,
+                    "Value": 11.4
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "vout1",
+                    "Name": "upper non critical",
+                    "Severity": 0,
+                    "Value": 12.6
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "vout1",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 15.6
+                }
+            ],
+            "Type": "E50SN12051",
+            "iout1_Name": "PDB_R_P12V_STBY_VRM_CURR_A",
+            "temp1_Name": "PDB_R_P12V_STBY_VRM_TEMP_C",
+            "vin_Name": "PDB_R_P12V_STBY_VRM_VIN_VOLT_V",
+            "vout1_Name": "PDB_R_P12V_STBY_VRM_VOUT_VOLT_V"
+        },
+        {
             "Address": "$address",
             "Bus": "$bus",
             "Name": "PDB_R FRU",
@@ -21,6 +144,10 @@
             "MaxReading": 47300,
             "Name": "FAN5_TACH_IL_SPEED_RPM",
             "PowerState": "Always",
+            "Presence": {
+                "PinName": "RPDB_FAN1_PRSNT_N_R",
+                "Polarity": "Low"
+            },
             "Thresholds": [
                 {
                     "Direction": "less than",
@@ -52,6 +179,10 @@
             "MaxReading": 44000,
             "Name": "FAN5_TACH_OL_SPEED_RPM",
             "PowerState": "Always",
+            "Presence": {
+                "PinName": "RPDB_FAN1_PRSNT_N_R",
+                "Polarity": "Low"
+            },
             "Thresholds": [
                 {
                     "Direction": "less than",
@@ -83,6 +214,10 @@
             "MaxReading": 47300,
             "Name": "FAN6_TACH_IL_SPEED_RPM",
             "PowerState": "Always",
+            "Presence": {
+                "PinName": "RPDB_FAN2_PRSNT_N_R",
+                "Polarity": "Low"
+            },
             "Thresholds": [
                 {
                     "Direction": "less than",
@@ -114,6 +249,10 @@
             "MaxReading": 44000,
             "Name": "FAN6_TACH_OL_SPEED_RPM",
             "PowerState": "Always",
+            "Presence": {
+                "PinName": "RPDB_FAN2_PRSNT_N_R",
+                "Polarity": "Low"
+            },
             "Thresholds": [
                 {
                     "Direction": "less than",
@@ -145,6 +284,10 @@
             "MaxReading": 47300,
             "Name": "FAN7_TACH_IL_SPEED_RPM",
             "PowerState": "Always",
+            "Presence": {
+                "PinName": "RPDB_FAN3_PRSNT_N_R",
+                "Polarity": "Low"
+            },
             "Thresholds": [
                 {
                     "Direction": "less than",
@@ -176,6 +319,10 @@
             "MaxReading": 44000,
             "Name": "FAN7_TACH_OL_SPEED_RPM",
             "PowerState": "Always",
+            "Presence": {
+                "PinName": "RPDB_FAN3_PRSNT_N_R",
+                "Polarity": "Low"
+            },
             "Thresholds": [
                 {
                     "Direction": "less than",
@@ -207,6 +354,10 @@
             "MaxReading": 47300,
             "Name": "FAN8_TACH_IL_SPEED_RPM",
             "PowerState": "Always",
+            "Presence": {
+                "PinName": "RPDB_FAN4_PRSNT_N_R",
+                "Polarity": "Low"
+            },
             "Thresholds": [
                 {
                     "Direction": "less than",
@@ -238,6 +389,10 @@
             "MaxReading": 44000,
             "Name": "FAN8_TACH_OL_SPEED_RPM",
             "PowerState": "Always",
+            "Presence": {
+                "PinName": "RPDB_FAN4_PRSNT_N_R",
+                "Polarity": "Low"
+            },
             "Thresholds": [
                 {
                     "Direction": "less than",
@@ -587,10 +742,99 @@
             "vout1_Name": "PDB_R_P50V_HSC4_VOUT_VOLT_V"
         },
         {
+            "Address": "0x60",
+            "Bus": "$bus",
+            "Labels": [
+                "iout1",
+                "temp1",
+                "vin",
+                "vout1"
+            ],
+            "Name": "PDB_R_P12V_MB_VRM",
+            "PowerState": "On",
+            "Thresholds": [
+                {
+                    "Direction": "greater than",
+                    "Label": "iout1",
+                    "Name": "upper critical",
+                    "Severity": 1,
+                    "Value": 167
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "iout1",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 210
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "temp1",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 122
+                },
+                {
+                    "Direction": "less than",
+                    "Label": "vin",
+                    "Name": "lower non recoverable",
+                    "Severity": 4,
+                    "Value": 37.5
+                },
+                {
+                    "Direction": "less than",
+                    "Label": "vin",
+                    "Name": "lower critical",
+                    "Severity": 1,
+                    "Value": 40
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "vin",
+                    "Name": "upper critical",
+                    "Severity": 1,
+                    "Value": 60
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "vin",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 62
+                },
+                {
+                    "Direction": "less than",
+                    "Label": "vout1",
+                    "Name": "lower non critical",
+                    "Severity": 0,
+                    "Value": 11.876
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "vout1",
+                    "Name": "upper non critical",
+                    "Severity": 0,
+                    "Value": 12.364
+                },
+                {
+                    "Direction": "greater than",
+                    "Label": "vout1",
+                    "Name": "upper non recoverable",
+                    "Severity": 4,
+                    "Value": 14.5
+                }
+            ],
+            "Type": "Q54SW120A7",
+            "iout1_Name": "PDB_R_P12V_MB_VRM_CURR_A",
+            "temp1_Name": "PDB_R_P12V_MB_VRM_TEMP_C",
+            "vin_Name": "PDB_R_P12V_MB_VRM_VIN_VOLT_V",
+            "vout1_Name": "PDB_R_P12V_MB_VRM_VOUT_VOLT_V"
+        },
+        {
             "Address": "0x4c",
             "Bus": "$bus",
             "Name": "PDB_R_P12V_MB_VRM_AMB_TEMP_C",
-            "Name1": "PDB_R_BUSBAR_TEMP_C",
+            "Name1": "PDB_R_BUSBAR_AMB_TEMP_C",
             "Name2": "PDB_R_EAM2_AMB_TEMP_C",
             "Thresholds": [
                 {
@@ -692,7 +936,7 @@
         }
     ],
     "Name": "PDB_R",
-    "Probe": "xyz.openbmc_project.FruDevice({'BOARD_PRODUCT_NAME': 'Anacapa(?!.*EVT1).*RPDB', 'BOARD_MANUFACTURER': 'Inventec'})",
+    "Probe": "xyz.openbmc_project.FruDevice({'BOARD_PRODUCT_NAME': 'Anacapa(?!.*EVT1)(?!.*EVT2).*RPDB', 'BOARD_MANUFACTURER': '(Inventec|Wiwynn)'})",
     "Type": "Board",
     "xyz.openbmc_project.Inventory.Decorator.Asset": {
         "BuildDate": "$BOARD_MANUFACTURE_DATE",

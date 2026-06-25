@@ -21,7 +21,7 @@
                     "Direction": "greater than",
                     "Name": "upper non recoverable",
                     "Severity": 4,
-                    "Value": 16.4
+                    "Value": 15.6
                 }
             ],
             "Type": "ADC"
@@ -381,7 +381,7 @@
         }
     ],
     "Name": "Anacapa SCM",
-    "Probe": "xyz.openbmc_project.FruDevice({'BOARD_PRODUCT_NAME': 'Anacapa SCM', 'BOARD_MANUFACTURER': 'Quanta'})",
+    "Probe": "xyz.openbmc_project.FruDevice({'BOARD_PRODUCT_NAME': 'Anacapa SCM', 'BOARD_MANUFACTURER': '(Inventec|Quanta|Wiwynn)'})",
     "Type": "Board",
     "xyz.openbmc_project.Inventory.Decorator.Asset": {
         "BuildDate": "$BOARD_MANUFACTURE_DATE",

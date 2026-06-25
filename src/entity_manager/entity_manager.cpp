@@ -3,7 +3,7 @@
 
 #include "entity_manager.hpp"
 
-#include "../dbus_regex.hpp"
+#include "../dbus_util.hpp"
 #include "../utils.hpp"
 #include "../variant_visitors.hpp"
 #include "configuration.hpp"
@@ -79,7 +79,7 @@ EntityManager::EntityManager(
 
 void EntityManager::postToDbus(const nlohmann::json& newConfiguration)
 {
-    std::map<std::string, std::string> newBoards; // path -> name
+    std::map<sdbusplus::object_path, std::string> newBoards; // path -> name
 
     // iterate through boards
     for (const auto& [boardId, boardConfig] : newConfiguration.items())
@@ -117,7 +117,7 @@ void EntityManager::postToDbus(const nlohmann::json& newConfiguration)
 
 void EntityManager::postBoardToDBus(
     const std::string& boardId, const nlohmann::json::object_t& boardConfig,
-    std::map<std::string, std::string>& newBoards)
+    std::map<sdbusplus::object_path, std::string>& newBoards)
 {
     auto boardNameIt = boardConfig.find("Name");
     if (boardNameIt == boardConfig.end())
@@ -143,7 +143,7 @@ void EntityManager::postBoardToDBus(
     if (findBoardType != boardValues.end() &&
         findBoardType->type() == nlohmann::json::value_t::string)
     {
-        boardType = dbus_regex::sanitizeForDBusMember(
+        boardType = dbus_util::sanitizeForDBusPathSegment(
             findBoardType->get<std::string>());
     }
     else
@@ -156,7 +156,7 @@ void EntityManager::postBoardToDBus(
     lg2::debug("post {TYPE} '{NAME}' to DBus", "TYPE", boardType, "NAME",
                boardName);
 
-    const std::string boardPath =
+    const sdbusplus::object_path boardPath =
         em_utils::buildInventorySystemPath(boardName, boardType);
 
     std::shared_ptr<sdbusplus::asio::dbus_interface> inventoryIface =
@@ -244,12 +244,19 @@ void EntityManager::postExposesRecordsToDBus(
     std::string itemType = "unknown";
     if (findType != item.end())
     {
-        itemType =
-            dbus_regex::sanitizeForDBusPath(findType->get<std::string>());
+        itemType = findType->get<std::string>();
+    }
+
+    if (!dbus_util::validateDBusInterfaceSegments(itemType))
+    {
+        lg2::error(
+            "item Type '{TYPE}' is not a valid D-Bus interface segment(s)",
+            "TYPE", itemType);
+        return;
     }
 
     const std::string itemName =
-        dbus_regex::sanitizeForDBusMember(findName->get<std::string>());
+        dbus_util::sanitizeForDBusPathSegment(findName->get<std::string>());
 
     std::string ifacePath = boardPath;
     ifacePath += "/";
@@ -578,7 +585,7 @@ static bool iaContainsProbeInterface(
     sdbusplus::message_t& msg,
     const std::unordered_set<std::string>& probeInterfaces)
 {
-    sdbusplus::message::object_path path;
+    sdbusplus::object_path path;
     DBusObject interfaces;
     msg.read(path, interfaces);
     return std::ranges::any_of(interfaces | std::views::keys,
@@ -699,8 +706,7 @@ void EntityManager::initFilters(
         sdbusplus::bus::match::rules::interfacesRemoved(),
         [this, probeInterfaces](sdbusplus::message_t& msg) {
             auto [path, interfaces] =
-                msg.unpack<sdbusplus::message::object_path,
-                           std::vector<std::string>>();
+                msg.unpack<sdbusplus::object_path, std::vector<std::string>>();
 
             if (irContainsProbeInterface(interfaces, probeInterfaces))
             {
