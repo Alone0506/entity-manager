@@ -67,6 +67,48 @@
                 }
             ],
             "Type": "ExternalSensor"
+        },
+        {
+            "Address": "0x4d",
+            "Bus": 8,
+            "EntityId": 7,
+            "EntityInstance": 1,
+            "MaxValue": 127,
+            "MinValue": 0,
+            "Name": "tmp75_0",
+            "Thresholds": [
+                {
+                    "Direction": "greater than",
+                    "Name": "upper non critical",
+                    "Severity": 0,
+                    "Value": 60.0
+                }
+            ],
+            "Type": "TMP75"
+        },
+        {
+            "Address": "0x4d",
+            "Bus": 9,
+            "EntityId": 7,
+            "EntityInstance": 2,
+            "MaxValue": 127,
+            "MinValue": 0,
+            "Name": "tmp75_1",
+            "Thresholds": [
+                {
+                    "Direction": "less than",
+                    "Name": "lower critical",
+                    "Severity": 1,
+                    "Value": 0.0
+                },
+                {
+                    "Direction": "less than",
+                    "Name": "lower non critical",
+                    "Severity": 0,
+                    "Value": 6.389
+                }
+            ],
+            "Type": "TMP75"
         }
     ],
     "Name": "Ted_Board",
