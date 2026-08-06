@@ -6,6 +6,8 @@
             "MinValue": 0,
             "MaxValue": 100,
             "Timeout": 400.0,
+            "EntityId": 7,
+            "EntityInstance": 4,
             "Thresholds": [
                 {
                     "Direction": "greater than",
@@ -40,6 +42,8 @@
             "MinValue": 0,
             "MaxValue": 100,
             "Timeout": 400.0,
+            "EntityId": 7,
+            "EntityInstance": 5,
             "Thresholds": [
                 {
                     "Direction": "greater than",
