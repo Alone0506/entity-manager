@@ -113,31 +113,6 @@
                 }
             ],
             "Type": "TMP75"
-        },
-        {
-            "Address": "0x22",
-            "Bus": 9,
-            "EntityId": 7,
-            "EntityInstance": 3,
-            "MaxValue": 127,
-            "MinValue": -128,
-            "Name": "C8763_Temp",
-            "PollRate": 0.5,
-            "Thresholds": [
-                {
-                    "Direction": "greater than",
-                    "Name": "upper non critical",
-                    "Severity": 0,
-                    "Value": 70
-                },
-                {
-                    "Direction": "greater than",
-                    "Name": "upper critical",
-                    "Severity": 1,
-                    "Value": 85
-                }
-            ],
-            "Type": "C8763"
         }
     ],
     "Name": "Ted_Board",
