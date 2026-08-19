@@ -3,3 +3,5 @@ subprojects/*
 !subprojects/*.wrap
 !subprojects/.clang-tidy
 !subprojects/.clang-format
+
+subprojects/stdexec.wrap
