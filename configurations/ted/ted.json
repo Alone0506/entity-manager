@@ -138,6 +138,150 @@
                 }
             ],
             "Type": "C8763"
+        },
+        {
+            "Index": 0,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH0",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 1,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH1",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 2,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH2",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 3,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH3",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 4,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH4",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 5,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH5",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 6,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH6",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 7,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH7",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 8,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH8",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 9,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH9",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 10,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH10",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 11,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH11",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 12,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH12",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 13,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH13",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 14,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH14",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
+        },
+        {
+            "Index": 15,
+            "MaxValue": 1.8,
+            "MinValue": 0,
+            "Name": "LTC2497_CH15",
+            "PollRate": 5,
+            "ScaleFactor": 1.0,
+            "Type": "ADC"
         }
     ],
     "Name": "Ted_Board",
