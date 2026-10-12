@@ -144,8 +144,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH0",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -153,8 +153,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH1",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -162,8 +162,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH2",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -171,8 +171,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH3",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -180,8 +180,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH4",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -189,8 +189,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH5",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -198,8 +198,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH6",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -207,8 +207,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH7",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -216,8 +216,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH8",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -225,8 +225,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH9",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.45454545,
             "Type": "ADC"
         },
         {
@@ -234,8 +234,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH10",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.125,
             "Type": "ADC"
         },
         {
@@ -243,8 +243,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH11",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.125,
             "Type": "ADC"
         },
         {
@@ -252,8 +252,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH12",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.0625,
             "Type": "ADC"
         },
         {
@@ -261,8 +261,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH13",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.0625,
             "Type": "ADC"
         },
         {
@@ -270,8 +270,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH14",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.0625,
             "Type": "ADC"
         },
         {
@@ -279,8 +279,8 @@
             "MaxValue": 1.8,
             "MinValue": 0,
             "Name": "LTC2497_CH15",
-            "PollRate": 5,
-            "ScaleFactor": 1.0,
+            "PollRate": 10,
+            "ScaleFactor": 0.0625,
             "Type": "ADC"
         }
     ],
