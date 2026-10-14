@@ -282,6 +282,12 @@
             "PollRate": 10,
             "ScaleFactor": 0.0625,
             "Type": "ADC"
+        },
+        {
+            "Name": "MCTP Temperature Sensor",
+            "Type": "MCTPI2CTarget",
+            "Bus": 4,
+            "Address": "0x1d"
         }
     ],
     "Name": "Ted_Board",
